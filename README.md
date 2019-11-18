@@ -11,6 +11,7 @@ A simple Tic Tac Toe game.
 3. [Getting Started](#getting-started)
    - [Requirements](#requirements)
    - [Usage](#usage)
+   - [Screenshots](#screenshots)
 4. [Credits](#credits)
 5. [License](#license)
 
@@ -23,6 +24,10 @@ A simple Tic Tac Toe game.
 ### Usage
 
 1. Type ```https://hornbill-tic-tac-toe.netlify.com/``` to watch site online.
+
+### Screenshots
+
+![Web Page Screenshot](https://justanaivedreamer.files.wordpress.com/2019/11/screenshot_2019-11-18-react-app.png)
 
 ## Credits
 
