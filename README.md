@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple Tic Tac Toe game.
+A simple Tic Tac Toe game built using ReactJS Library.
 
 ## Table of Contents
 
