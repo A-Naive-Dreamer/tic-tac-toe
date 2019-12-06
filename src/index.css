@@ -8,6 +8,7 @@ body {
   font-size: 5em !important;
   font-weight: 900 !important;
   padding: 50px !important;
+  text-align: center;
 }
 
 .square:focus {
@@ -25,4 +26,12 @@ body {
 .square:hover {
   cursor: pointer;
   background-color: #808080;
+}
+
+@media only screen and (max-width: 959px) {
+  .square {
+    font-size: 2.5em !important;
+    padding: 10px !important;
+    text-align: center;
+  }
 }

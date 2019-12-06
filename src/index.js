@@ -4,7 +4,10 @@ import './index.css';
 
 function Square(props) {
     return (
-        <div className="col-4 square" onClick={props.onClick}>
+        <div
+            className="col-4 square"
+            onClick={props.onClick}
+        >
             {props.value}
         </div>
     )
@@ -12,28 +15,49 @@ function Square(props) {
 
 class Board extends React.Component {
     renderSquare(i) {
-        return <Square value={this.props.squares[i]} onClick={
-            () => this.props.onClick(i)
-        } />
+        return (
+            <Square
+                value={this.props.squares[i]}
+                onClick={() => this.props.onClick(i)}
+            />
+        )
     }
 
     render() {
         return (
             <div>
-                <div class="row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
+                <div className="row">
+                    {
+                        this.renderSquare(0)
+                    }
+                    {
+                        this.renderSquare(1)
+                    }
+                    {
+                        this.renderSquare(2)
+                    }
                 </div>
                 <div className="row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
+                    {
+                        this.renderSquare(3)
+                    }
+                    {
+                        this.renderSquare(4)
+                    }
+                    {
+                        this.renderSquare(5)
+                    }
                 </div>
                 <div className="row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
+                    {
+                        this.renderSquare(6)
+                    }
+                    {
+                        this.renderSquare(7)
+                    }
+                    {
+                        this.renderSquare(8)
+                    }
                 </div>
             </div>
         )
@@ -65,10 +89,11 @@ class Game extends React.Component {
             squares = current.squares.slice()
 
         if (calculateWinner(squares) || squares[i]) {
-            return
+            return null
         }
 
         squares[i] = this.state.xIsNext ? 'X' : 'O'
+
         this.setState({
             history: history.concat([{
                 squares: squares
@@ -88,15 +113,20 @@ class Game extends React.Component {
                     'Go to game start'
 
                 return (
-                    <div class="form-group">
-                        <button className="btn btn-info btn-block" onClick={() => this.jumpTo(move)}>
-                            {desc}
+                    <div className="form-group">
+                        <button
+                            className="btn btn-info btn-block"
+                            onClick={() => this.jumpTo(move)}
+                        >
+                            {
+                                desc
+                            }
                         </button>
                     </div>
                 )
             })
 
-        let status
+        let status = ''
 
         if (winner) {
             status = 'Winner: ' + winner
@@ -107,12 +137,23 @@ class Game extends React.Component {
         return (
             <div className="row game">
                 <div className="col-8 row mx-auto">
-                    <div className="col game-board">
-                        <Board squares={current.squares} onClick={i => this.handleClick(i)} />
+                    <div
+                        className="col-md-6 game-board"
+                    >
+                        <Board
+                            squares={current.squares}
+                            onClick={i => this.handleClick(i)}
+                        />
                     </div>
-                    <div className="col game-info">
-                        <h1 className="text-center">{status}</h1>
-                        {moves}
+                    <div className="col-md-6 game-info">
+                        <h1 className="text-center">
+                            {
+                                status
+                            }
+                        </h1>
+                        {
+                            moves
+                        }
                     </div>
                 </div>
             </div>
@@ -140,7 +181,11 @@ function calculateWinner(squares) {
     for (let i = 0; i < lines.length; ++i) {
         const [a, b, c] = lines[i]
 
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        if (
+            squares[a] &&
+            squares[a] === squares[b] &&
+            squares[a] === squares[c]
+        ) {
             return squares[a]
         }
     }
